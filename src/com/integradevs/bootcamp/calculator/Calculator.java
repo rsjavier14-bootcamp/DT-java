@@ -23,6 +23,12 @@ public final class Calculator {
 	 * @return the sum of both numbers of type int
 	 */
 	public static int add(int a, int b) {
-		return a + b;
+		int sum = a + b;
+
+		if (((a ^ sum) & (b ^ sum)) < 0)
+			throw new ArithmeticException(
+					"Integer overflow. The sum exceeds the maximum number that an object of type int can represent");
+
+		return sum;
 	}
 }
