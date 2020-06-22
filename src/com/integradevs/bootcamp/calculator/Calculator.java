@@ -3,7 +3,7 @@ package com.integradevs.bootcamp.calculator;
 /**
  * Calculator class
  * 
- * This class has a method to add two numbers
+ * This class has methods for adding and subtracting two numbers.
  * 
  * @author javier14-bootcamp
  *
@@ -30,5 +30,21 @@ public final class Calculator {
 					"Integer overflow. The sum exceeds the maximum number that an object of type int can represent");
 
 		return sum;
+	}
+
+	/**
+	 * The subtraction method receives two integers and subtracts between them.
+	 * 
+	 * @param a First number to subtract
+	 * @param b Second number to subtract
+	 * @return the subtraction of both numbers of type int
+	 */
+	public static int subtract(int a, int b) {
+		int subtraction = a - b;
+
+		if (((a ^ b) & (a ^ subtraction)) < 0) {
+			throw new ArithmeticException("Integer Overflow");
+		}
+		return subtraction;
 	}
 }
